@@ -18,3 +18,17 @@ SerializationVersion: 1.1.0.1
 **********************
 Transcript started, output file is docs\evidence\setup-run-4.txt
 PS C:\Users\noraa\Fortis-COMP5002>
+(.venv) powershell -ExecutionPolicy Bypass -File setup.ps1
+AI/bge-small-en-v1.5/resolve/5c38ec7c405ec4b44b94cc5a9bb
+96e735b38267a/2_Normalize/config.json "HTTP/1.1 404 Not
+Found"
+WARNING:core.main:Using built-in stub responses (no mode
+l loaded). Reports will be placeholder data.
+(.venv) TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+PS C:\Users\noraa\Fortis-COMP5002>
+(.venv) Stop-Transcript
+**********************
+Windows PowerShell transcript end
+End time: 20261122232803
+**********************
