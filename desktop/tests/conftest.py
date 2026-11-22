@@ -30,6 +30,7 @@ os.environ["DB_PATH"] = os.path.join(_tmp, "engagements.sqlite3")
 os.environ["CHROMA_PERSIST_DIR"] = os.path.join(_tmp, "chroma")
 os.environ["UPLOAD_DIR"] = os.path.join(_tmp, "uploads")
 os.environ["REPORT_DIR"] = os.path.join(_tmp, "reports")
+os.environ["FORTIS_MODELS_DIR"] = os.path.join(_tmp, "models")
 os.environ["OLLAMA_BASE_URL"] = "http://127.0.0.1:1"  # deliberately unreachable
 os.environ["HIERARCHICAL_THRESHOLD_TOKENS"] = "200"
 os.environ["MAP_BATCH_TOKENS"] = "80"
@@ -37,3 +38,14 @@ os.environ["RAG_LEVEL"] = "standard"
 os.environ["RERANK_BACKEND"] = "none"
 
 import pytest  # noqa: E402
+
+
+@pytest.fixture(autouse=True)
+def _assume_model_loaded(monkeypatch):
+    # Report tests check report logic so they shouldn't depend on whether a
+    # model happens to be installed. Tests that check stub mode itself
+    # still override this to True.
+    import core.report_intent as ri
+    import server.orchestration as orch
+    monkeypatch.setattr(ri, "is_stub_backend", lambda: False)
+    monkeypatch.setattr(orch, "is_stub_backend", lambda: False)
