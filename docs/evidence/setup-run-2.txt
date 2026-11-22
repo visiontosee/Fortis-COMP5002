@@ -1,0 +1,100 @@
+﻿**********************
+Windows PowerShell transcript start
+Start time: 20261122190727
+Username: LENORA\noraa
+RunAs User: LENORA\noraa
+Configuration Name: 
+Machine: LENORA (Microsoft Windows NT 10.0.26300.0)
+Host Application: C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.exe -noexit -command try { . "c:\Users\noraa\AppData\Local\Programs\Microsoft VS Code\8a14f0cc1b\resources\app\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration.ps1" } catch {}
+Process ID: 25720
+PSVersion: 5.1.26100.9818
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.26100.9818
+BuildVersion: 10.0.26100.9818
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+Transcript started, output file is docs\evidence\setup-run-2.txt
+PS C:\Users\noraa\Fortis-COMP5002> powershell -ExecutionPolicy Bypass -File setup.ps1(Set-ExecutionPolicy -Scope Process -ExecutionPolicy RemoteSigned) ; (& c:\Users\noraa\Fortis-COMP5002\.venv\Scripts\Activate.ps1)
+
+  Fortis - Cybersecurity Advisor : setup
+  ----------------------------------------
+  [ok] Python 3.13.0
+  [ok] Virtual environment exists
+  [ok] Dependencies present
+  [..] Installing the local AI engine (llama.cpp, ~200 MB)...
+python.exe : WARNING: Skipping llama_cpp_python as it is not installed.
+At C:\Users\noraa\Fortis-COMP5002\setup.ps1:76 char:9
++         & $venvPy -m pip uninstall --disable-pip-version-check --yes  ...
++         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (WARNING: Skippi... not installed.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+PS C:\Users\noraa\Fortis-COMP5002>
+(.venv) Select-String -Path setup.ps1 -Pattern "pip uninstall"
+
+setup.ps1:76:        & $venvPy -m pip uninstall --disable-pip-version-check --yes llama_cpp_python 2>$null | Out-Null
+setup.ps1:89:            & $venvPy -m pip uninstall --disable-pip-version-check --yes llama_cpp_python 2>$null | Out-Null
+setup.ps1:101:            & $venvPy -m pip uninstall --disable-pip-version-check --yes llama_cpp_python 2>$null | Out-Null
+
+
+PS C:\Users\noraa\Fortis-COMP5002>
+PS C:\Users\noraa\Fortis-COMP5002>
+(.venv) Select-String -Path setup.ps1 -Pattern "pip (un)?install"
+
+setup.ps1:49:    & $venvPy -m pip install --disable-pip-version-check -r
+requirements-dev.txt
+setup.ps1:77:        Invoke-Native { & $venvPy -m pip uninstall
+--disable-pip-version-check --yes llama_cpp_python 2>$null } | Out-Null
+setup.ps1:83:        Invoke-Native { & $venvPy -m pip install
+--disable-pip-version-check --quiet --only-binary :all: llama-cpp-python
+--extra-index-url https://abetlen.github.io/llama-cpp-python/whl/cu124 }
+setup.ps1:90:            Invoke-Native { & $venvPy -m pip uninstall
+--disable-pip-version-check --yes llama_cpp_python 2>$null } | Out-Null
+setup.ps1:96:        Invoke-Native { & $venvPy -m pip install
+--disable-pip-version-check --quiet --only-binary :all: llama-cpp-python
+--extra-index-url https://abetlen.github.io/llama-cpp-python/whl/cpu }
+setup.ps1:102:            Invoke-Native { & $venvPy -m pip uninstall
+--disable-pip-version-check --yes llama_cpp_python 2>$null } | Out-Null
+setup.ps1:118:            Invoke-Native { & $venvPy -m pip install
+--disable-pip-version-check --quiet llama-cpp-python }
+
+
+PS C:\Users\noraa\Fortis-COMP5002>
+(.venv) git diff setup.ps1
+
+(.venv) TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+PS C:\Users\noraa\Fortis-COMP5002>
+(.venv) Select-String -Path setup.ps1 -Pattern "pip (un)?install"
+
+setup.ps1:49:    & $venvPy -m pip install --disable-pip-version-check -r requirements-dev.txt
+setup.ps1:78:        Invoke-Native { & $venvPy -m pip uninstall --disable-pip-version-check --yes llama_cpp_python 2>$null } | Out-Null
+setup.ps1:84:        Invoke-Native { & $venvPy -m pip install --disable-pip-version-check --quiet --only-binary :all: llama-cpp-python --extra-index-url
+https://abetlen.github.io/llama-cpp-python/whl/cu124 }
+setup.ps1:91:            Invoke-Native { & $venvPy -m pip uninstall --disable-pip-version-check --yes llama_cpp_python 2>$null } | Out-Null
+setup.ps1:97:        Invoke-Native { & $venvPy -m pip install --disable-pip-version-check --quiet --only-binary :all: llama-cpp-python --extra-index-url
+https://abetlen.github.io/llama-cpp-python/whl/cpu }
+setup.ps1:103:            Invoke-Native { & $venvPy -m pip uninstall --disable-pip-version-check --yes llama_cpp_python 2>$null } | Out-Null
+setup.ps1:119:            Invoke-Native { & $venvPy -m pip install --disable-pip-version-check --quiet llama-cpp-python }
+
+
+PS C:\Users\noraa\Fortis-COMP5002>
+(.venv) git diff setup.ps1
+
+PS C:\Users\noraa\Fortis-COMP5002>
+(.venv) git add setup.ps1
+
+PS C:\Users\noraa\Fortis-COMP5002>
+(.venv) git commit -m "wrapped all the pip calls in Invoke-Native so warnings can't crash setup"
+
+PS C:\Users\noraa\Fortis-COMP5002>
+(.venv) git push
+
+PS C:\Users\noraa\Fortis-COMP5002>
+(.venv) Stop-Transcript
+**********************
+Windows PowerShell transcript end
+End time: 20261122192021
+**********************

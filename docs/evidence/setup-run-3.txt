@@ -1,0 +1,39 @@
+﻿**********************
+Windows PowerShell transcript start
+Start time: 20261122192027
+Username: LENORA\noraa
+RunAs User: LENORA\noraa
+Configuration Name: 
+Machine: LENORA (Microsoft Windows NT 10.0.26300.0)
+Host Application: C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.exe -noexit -command try { . "c:\Users\noraa\AppData\Local\Programs\Microsoft VS Code\8a14f0cc1b\resources\app\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration.ps1" } catch {}
+Process ID: 25720
+PSVersion: 5.1.26100.9818
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.26100.9818
+BuildVersion: 10.0.26100.9818
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+Transcript started, output file is docs\evidence\setup-run-3.txt
+PS C:\Users\noraa\Fortis-COMP5002>
+(.venv) powershell -ExecutionPolicy Bypass -File setup.ps1
+FAILED desktop/tests/test_chat_report_export.py::test_stream_report_request_format_se
+lection
+FAILED desktop/tests/test_chat_report_export.py::test_chat_report_request_writes_file
+FAILED desktop/tests/test_chat_report_export.py::test_report_slash_command_generates_
+and_downloads
+FAILED desktop/tests/test_chat_report_export.py::test_stream_report_without_documents
+_is_friendly_error
+FAILED desktop/tests/test_integration.py::test_report_generation_invalid_format
+FAILED desktop/tests/test_integration.py::test_report_generation_engagement_not_found
+10 failed, 229 passed, 2 warnings in 49.66s
+  [X] Self-test failed - see output above
+  Press Enter to exit:
+PS C:\Users\noraa\Fortis-COMP5002>
+(.venv) Stop-Transcript
+**********************
+Windows PowerShell transcript end
+End time: 20261122213013
+**********************
